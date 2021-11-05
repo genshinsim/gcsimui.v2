@@ -1,9 +1,15 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import configSlice from "features/sim/configSlice";
+import teamSlice from "features/team/teamSlice";
+import importSlice from "features/import/importSlice";
+import resultSlice from "features/result/resultSlice";
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    settings: configSlice,
+    team: teamSlice,
+    import: importSlice,
+    result: resultSlice,
   },
 });
 
