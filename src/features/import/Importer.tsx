@@ -1,5 +1,6 @@
 import { useAppDispatch, useAppSelector } from "app/hooks";
 import { RootState } from "app/store";
+import teamSlice from "features/team/teamSlice";
 import React, { SetStateAction, useState } from "react";
 import { IGOODImport, staticPath, parseFromGO } from "../../util";
 import { setJSON } from "./importSlice";
@@ -90,6 +91,14 @@ export default function Importer() {
     dispatch(setJSON(e.currentTarget.value));
   };
 
+  const handleImport = () => {
+    const newcool = data.characters.filter((char, index) => {
+      return data.selected[index];
+    });
+    // teamSlice.
+    console.log(newcool);
+  };
+
   return (
     <div className="flex flex-col gap-y-4 pl-8 pr-8">
       <div>
@@ -136,7 +145,7 @@ export default function Importer() {
       </div>
       <button
         className="btn btn-primary w-full"
-        // on:click={handleImport}
+        onClick={handleImport}
         disabled={data.selected.filter(Boolean).length === 0}
       >
         Import Team
