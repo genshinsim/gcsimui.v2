@@ -1,24 +1,18 @@
 import { useAppDispatch, useAppSelector } from "app/hooks";
 import { RootState } from "app/store";
-import React from "react";
+import React, { SetStateAction, useState } from "react";
 import { IGOODImport, staticPath, parseFromGO } from "../../util";
 import { setJSON } from "./importSlice";
 
 const notImplemented = [
   "traveler",
   "aether",
-  "aloy",
   "barbara",
   "lumine",
-  "mona",
-  "qiqi",
   "razor",
-  "sangonomiyakokomi",
   "sayu",
-  "tartaglia",
   "thoma",
   "xinyan",
-  "yanfei",
 ];
 
 function GridView({
@@ -34,17 +28,12 @@ function GridView({
         key={char.key}
         className={
           data.selected[index]
-            ? "selected-char-box overflow-hidden rounded-md border-2"
+            ? "selected-char-box overflow-hidden bg-gray-600 rounded-md "
             : notImplemented.includes(char.key.toLowerCase())
             ? "selected-char-box overflow-hidden rounded-md cursor-not-allowed"
             : "selected-char-box overflow-hidden rounded-md hover:bg-gray-500 cursor-pointer"
         }
-        onClick={() => {
-          if (notImplemented.includes(char.key.toLowerCase())) {
-            return;
-          }
-          handleSelect(index)();
-        }}
+        onClick={handleSelect(index)}
       >
         <img
           src={`${staticPath.avatar}/${char.key}.png`}
@@ -69,8 +58,33 @@ export default function Importer() {
       text: state.import,
     };
   });
+  //Using a hook for the selectedArray only
+  const preData = parseFromGO(text);
+  const [selectedArray, setSelectedArray] = useState(preData.selected);
+  const data = { ...preData, selected: selectedArray };
 
-  const data = parseFromGO(text);
+  const handleSelect = (index: number) => {
+    return () => {
+      if (notImplemented.includes(data.characters[index].key.toLowerCase())) {
+        return;
+      }
+      if (data.selected[index]) {
+        //Make a new array, update it and use it to set state
+        const updatedSelectedArray = [...data.selected];
+        updatedSelectedArray[index] = !updatedSelectedArray[index];
+        setSelectedArray(updatedSelectedArray);
+      }
+      // handleSelect(index);
+      //Only select if less than 4 characters
+      if (data.selected.filter(Boolean).length >= 4) {
+        return;
+      }
+      // I wish there was a cleaner way
+      const updatedSelectedArray = [...data.selected];
+      updatedSelectedArray[index] = !updatedSelectedArray[index];
+      setSelectedArray(updatedSelectedArray);
+    };
+  };
 
   const handleOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     dispatch(setJSON(e.currentTarget.value));
@@ -86,7 +100,7 @@ export default function Importer() {
           target="_blank"
           href="https://frzyc.github.io/genshin-optimizer/#/database"
         >
-          database
+          <text>database</text>
         </a>
         tab, click on <strong>Copy to Clipboard</strong> button. Paste the
         result in the text area below. Select up to 4 characters from the list
@@ -98,7 +112,7 @@ export default function Importer() {
       </div>
 
       {data.err === "" ? (
-        <GridView data={data} handleSelect={(index) => console.log(index)} />
+        <GridView data={data} handleSelect={handleSelect} />
       ) : (
         "No characters found in Genshin Optimizer export"
       )}
@@ -120,6 +134,13 @@ export default function Importer() {
           <span className="mt-2 text-red-500">Invalid JSON</span>
         ) : null}
       </div>
+      <button
+        className="btn btn-primary w-full"
+        // on:click={handleImport}
+        disabled={data.selected.filter(Boolean).length === 0}
+      >
+        Import Team
+      </button>
     </div>
   );
 }
