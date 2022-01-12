@@ -24,9 +24,17 @@ export const teamSlice = createSlice({
         state.push(blankChar());
       }
     },
+    setTeam: (
+      state,
+      action: PayloadAction<{ data: Character[] }>
+    ) => {
+      if (action.payload.data.length > 0 && action.payload.data.length <= 4 ) {
+          state = action.payload.data
+      }
+    },
   },
 });
 
-export const { setCharacter, addCharacter } = teamSlice.actions;
+export const { setCharacter, addCharacter, setTeam } = teamSlice.actions;
 
 export default teamSlice.reducer;

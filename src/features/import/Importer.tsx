@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "app/hooks";
 import { RootState } from "app/store";
-import teamSlice, { setCharacter } from "features/team/teamSlice";
+import teamSlice, { setCharacter, setTeam } from "features/team/teamSlice";
 import React, { SetStateAction, useState } from "react";
 import { IGOODImport, staticPath, parseFromGO } from "../../util";
 import { setJSON } from "./importSlice";
@@ -98,9 +98,8 @@ export default function Importer() {
       return data.selected[index];
     });
     // Redux thingy
-    selectedCharacters.map((data, index) =>
-      dispatch(setCharacter({ index, data }))
-    );
+    // selectedCharacters.map((data, index) =>))
+    dispatch(setTeam({ data: selectedCharacters }));
   };
 
   return (
