@@ -31,6 +31,7 @@ export const teamSlice = createSlice({
       if (action.payload.data.length > 0 && action.payload.data.length <= 4 ) {
           state = action.payload.data
       }
+      return state
     },
   },
 });
