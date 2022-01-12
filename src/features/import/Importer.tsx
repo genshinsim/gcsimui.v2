@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "app/hooks";
 import { RootState } from "app/store";
-import teamSlice from "features/team/teamSlice";
+import teamSlice, { setCharacter } from "features/team/teamSlice";
 import React, { SetStateAction, useState } from "react";
 import { IGOODImport, staticPath, parseFromGO } from "../../util";
 import { setJSON } from "./importSlice";
@@ -59,6 +59,7 @@ export default function Importer() {
       text: state.import,
     };
   });
+  const team = useAppSelector((state) => state.team);
   //Using a hook for the selectedArray only
   const preData = parseFromGO(text);
   const [selectedArray, setSelectedArray] = useState(preData.selected);
@@ -92,11 +93,14 @@ export default function Importer() {
   };
 
   const handleImport = () => {
-    const newcool = data.characters.filter((char, index) => {
+    //Get the characters that were selected
+    const selectedCharacters = data.characters.filter((char, index) => {
       return data.selected[index];
     });
-    // teamSlice.
-    console.log(newcool);
+    // Redux thingy
+    selectedCharacters.map((data, index) =>
+      dispatch(setCharacter({ index, data }))
+    );
   };
 
   return (
@@ -109,7 +113,7 @@ export default function Importer() {
           target="_blank"
           href="https://frzyc.github.io/genshin-optimizer/#/database"
         >
-          <text>database</text>
+          <text> database </text>
         </a>
         tab, click on <strong>Copy to Clipboard</strong> button. Paste the
         result in the text area below. Select up to 4 characters from the list
