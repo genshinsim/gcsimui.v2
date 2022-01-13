@@ -74,16 +74,16 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
           onClick={() => editArtifact(slot)}
         >
           <div className="w-full blank">
-            <div className="blank-svg">
+            <div className="blank-svg mt-2 mb-3">
               <svg
                 aria-hidden="true"
                 focusable="false"
                 data-prefix="fas"
                 data-icon="question"
-                className="w-5 h-5"
+                className="w-12 h-5"
                 role="img"
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 320 512"
+                viewBox="0 0 500 500"
               >
                 <path
                   fill="currentColor"
@@ -405,18 +405,22 @@ function CharHeader({
       }
     >
       <div className="character-header" />
-      <div className="character-name font-medium m-4">{char.name}</div>
       <div className="w-1/2">
-        <div
-          className="hover:bg-gray-500 rounded-md pl-1 pr-1 cursor-pointer mt-6"
-          onClick={handleEdit}
-        >
-          <div>
-            Level {char.level}/{charAscLvlCap(char.ascension)}
-          </div>
-          <div>Cons {char.constellation}</div>
-          <div>
-            Talent: {char.talent.auto}/{char.talent.skill}/{char.talent.burst}
+        <div className="character-name font-medium text-base font-bold">
+          {char.name}
+        </div>
+        <div>
+          <div
+            className="hover:bg-gray-500 rounded-md pl-1 pr-1 cursor-pointer "
+            onClick={handleEdit}
+          >
+            <div>
+              Level {char.level}/{charAscLvlCap(char.ascension)}
+            </div>
+            <div>Cons {char.constellation}</div>
+            <div>
+              Talent: {char.talent.auto}/{char.talent.skill}/{char.talent.burst}
+            </div>
           </div>
         </div>
       </div>
