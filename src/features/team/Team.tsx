@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from "app/hooks";
 import { RootState } from "app/store";
 import useLocation from "wouter/use-location";
 import { addCharacter } from "./teamSlice";
+import CharacterCard from "./CharacterCard";
 
 function NewChar({ handleAdd }: { handleAdd: () => any }) {
   return (
@@ -53,8 +54,9 @@ export default function Team() {
 
   team.forEach((c, i) => {});
 
-  cards = team.map((c, i) => {
-    return <div key={c.key}>character goes here</div>;
+  cards = team.map((char, index) => {
+    return <CharacterCard char={char} index={index}></CharacterCard>;
+    // return <div key={c.key}>character goes here</div>;
   });
 
   if (cards.length < 4) {

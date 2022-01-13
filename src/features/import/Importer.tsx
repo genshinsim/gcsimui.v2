@@ -98,7 +98,6 @@ export default function Importer() {
       return data.selected[index];
     });
     // Redux thingy
-    // selectedCharacters.map((data, index) =>))
     dispatch(setTeam({ data: selectedCharacters }));
   };
 

@@ -183,17 +183,18 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
           <div className="font-bold">Substats</div>
         </div>
         <div className="flex flex-row ml-2">
-          <div>
+          <div className="flex  ">
             <span className="substat-header">
               <svg
                 aria-hidden="true"
                 focusable="false"
                 data-prefix="faga"
                 data-icon="hp_primary"
-                className="svg-inline--fa fa-hp_primary fa-w-13 "
+                className="svg-inline--fa fa-hp_primary fa-w-13  "
                 role="img"
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 11.104 14"
+                viewBox="0 0 12 14"
+                width="13"
               >
                 <path
                   fill="currentColor"
@@ -208,7 +209,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
           </div>
         </div>
         <div className="flex flex-row ml-2">
-          <div>
+          <div className="flex  ">
             <span className="substat-header">
               <svg
                 aria-hidden="true"
@@ -219,6 +220,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
                 role="img"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 14 13.977"
+                width="13"
               >
                 <path
                   fill="currentColor"
@@ -233,7 +235,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
           </div>
         </div>
         <div className="flex flex-row ml-2">
-          <div>
+          <div className="flex  ">
             <span className="substat-header">
               <svg
                 aria-hidden="true"
@@ -244,6 +246,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
                 role="img"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 12.883 14"
+                width="13"
               >
                 <path
                   fill="currentColor"
@@ -258,7 +261,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
           </div>
         </div>
         <div className="flex flex-row ml-2">
-          <div>
+          <div className="flex  ">
             <span className="substat-header">
               <svg
                 aria-hidden="true"
@@ -269,6 +272,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
                 role="img"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 14 13.113"
+                width="13"
               >
                 <path
                   fill="currentColor"
@@ -281,7 +285,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
           <div className="flex-grow text-right">{subs.eleMas}</div>
         </div>
         <div className="flex flex-row ml-2">
-          <div>
+          <div className="flex  ">
             <span className="substat-header">
               <svg
                 aria-hidden="true"
@@ -292,6 +296,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
                 role="img"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 14 13.282"
+                width="13"
               >
                 <path
                   fill="currentColor"
@@ -306,7 +311,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
           </div>
         </div>
         <div className="flex flex-row ml-2">
-          <div>
+          <div className="flex  ">
             <span className="substat-header">
               <svg
                 aria-hidden="true"
@@ -317,6 +322,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
                 role="img"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 14 14"
+                width="13"
               >
                 <path
                   fill="currentColor"
@@ -331,7 +337,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
           </div>
         </div>
         <div className="flex flex-row ml-2">
-          <div>
+          <div className="flex  ">
             <span className="substat-header">
               <svg
                 aria-hidden="true"
@@ -342,6 +348,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
                 role="img"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 480 512"
+                width="13"
               >
                 <path
                   fill="currentColor"
