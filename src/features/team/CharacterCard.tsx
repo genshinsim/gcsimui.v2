@@ -242,7 +242,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
           </div>
           <div className="flex flex-row ml-2">
             <div className="flex  ">
-              <span className="substat-header">
+              <span className="substat-header mt-1">
                 <svg
                   aria-hidden="true"
                   focusable="false"
@@ -260,7 +260,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
                   />
                 </svg>
               </span>
-              <span>HP</span>
+              <span className="ml-1">HP</span>
             </div>
             <div className="flex-grow text-right">
               {subs.hp_.toFixed(2) + "%"} | {subs.hp}
@@ -268,7 +268,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
           </div>
           <div className="flex flex-row ml-2">
             <div className="flex  ">
-              <span className="substat-header">
+              <span className="substat-header mt-1">
                 <svg
                   aria-hidden="true"
                   focusable="false"
@@ -286,7 +286,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
                   />
                 </svg>
               </span>
-              <span>Attack</span>
+              <span className="ml-1">Attack</span>
             </div>
             <div className="flex-grow text-right">
               {subs.atk_.toFixed(2) + "%"} | {subs.atk}
@@ -294,7 +294,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
           </div>
           <div className="flex flex-row ml-2">
             <div className="flex  ">
-              <span className="substat-header">
+              <span className="substat-header mt-1">
                 <svg
                   aria-hidden="true"
                   focusable="false"
@@ -312,7 +312,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
                   />
                 </svg>
               </span>
-              <span>Defense</span>
+              <span className="ml-1">Defense</span>
             </div>
             <div className="flex-grow text-right">
               {subs.def_.toFixed(2) + "%"} | {subs.def}
@@ -320,7 +320,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
           </div>
           <div className="flex flex-row ml-2">
             <div className="flex  ">
-              <span className="substat-header">
+              <span className="substat-header mt-1">
                 <svg
                   aria-hidden="true"
                   focusable="false"
@@ -338,13 +338,13 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
                   />
                 </svg>
               </span>
-              <span>EM</span>
+              <span className="ml-1">EM</span>
             </div>
             <div className="flex-grow text-right">{subs.eleMas}</div>
           </div>
           <div className="flex flex-row ml-2">
             <div className="flex  ">
-              <span className="substat-header">
+              <span className="substat-header mt-1">
                 <svg
                   aria-hidden="true"
                   focusable="false"
@@ -362,7 +362,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
                   />
                 </svg>
               </span>
-              <span>ER</span>
+              <span className="ml-1">ER</span>
             </div>
             <div className="flex-grow text-right">
               {subs.enerRech_.toFixed(2) + "%"}
@@ -370,7 +370,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
           </div>
           <div className="flex flex-row ml-2">
             <div className="flex  ">
-              <span className="substat-header">
+              <span className="substat-header mt-1">
                 <svg
                   aria-hidden="true"
                   focusable="false"
@@ -388,7 +388,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
                   />
                 </svg>
               </span>
-              <span>CR</span>
+              <span className="ml-1">CR</span>
             </div>
             <div className="flex-grow text-right">
               {subs.critRate_.toFixed(2) + "%"}
@@ -396,7 +396,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
           </div>
           <div className="flex flex-row ml-2">
             <div className="flex  ">
-              <span className="substat-header">
+              <span className="substat-header mt-1">
                 <svg
                   aria-hidden="true"
                   focusable="false"
@@ -414,7 +414,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
                   />
                 </svg>
               </span>
-              <span>CD</span>
+              <span className="ml-1">CD</span>
             </div>
             <div className="flex-grow text-right">
               {subs.critDMG_.toFixed(2) + "%"}
