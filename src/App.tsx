@@ -9,7 +9,7 @@ import Result from "features/result/Results";
 
 function App() {
   return (
-    <div className=".bp3-dark mx-auto h-full">
+    <div className=".bp3-dark text-white mx-auto h-full">
       <Nav />
       <Switch>
         <Route path="/" component={Team} />
