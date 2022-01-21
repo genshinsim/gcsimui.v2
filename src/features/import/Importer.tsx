@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "app/hooks";
 import { RootState } from "app/store";
-import teamSlice, { setCharacter, setTeam } from "features/team/teamSlice";
+import { setTeam } from "features/team/teamSlice";
 import React, { SetStateAction, useState } from "react";
 import { IGOODImport, staticPath, parseFromGO } from "../../util";
 import { setJSON } from "./importSlice";
