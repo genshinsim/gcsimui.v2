@@ -6,11 +6,9 @@ import {
   StatKey,
   statToString,
 } from "../../util";
-import classNames from "classnames";
+import "@blueprintjs/core/lib/css/blueprint.css";
+import { Dialog, Colors} from "@blueprintjs/core";
 import EditCharacterModal from "./EditCharacterModal";
-import { Dialog, Classes } from "@blueprintjs/core";
-import { ELEVATION_4 } from "@blueprintjs/core/lib/esm/common/classes";
-//import "@blueprintjs/core/lib/css/blueprint.css";
 
 function charBG(element: string) {
   switch (element.toLowerCase()) {
@@ -128,14 +126,16 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
     <>
       
       <Dialog
-        canEscapeKeyClose
-        canOutsideClickClose
-        autoFocus
         isOpen={editChar}
-        onClose={() => setEditChar(false)}
+        onClose={()=>setEditChar(false)}
+        hasBackdrop={editChar}
+        className="bg-emerald-600"
+        style={{background: Colors.DARK_GRAY4}}
       >
-        <div>
-          <EditCharacterModal char={char} />
+        <div className="p-2">
+          <div>
+            <EditCharacterModal char={char} />
+          </div>
         </div>
       </Dialog>
       {/* {editChar && (
