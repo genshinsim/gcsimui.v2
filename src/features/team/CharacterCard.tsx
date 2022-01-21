@@ -6,6 +6,11 @@ import {
   StatKey,
   statToString,
 } from "../../util";
+import classNames from "classnames";
+import EditCharacterModal from "./EditCharacterModal";
+import { Dialog, Classes } from "@blueprintjs/core";
+import { ELEVATION_4 } from "@blueprintjs/core/lib/esm/common/classes";
+//import "@blueprintjs/core/lib/css/blueprint.css";
 
 function charBG(element: string) {
   switch (element.toLowerCase()) {
@@ -32,9 +37,12 @@ type CharacterCardProps = {
 
 const slots: SlotKey[] = ["flower", "plume", "sands", "goblet", "circlet"];
 
+let consImages = ["", "", "", "", "", ""];
+
 export default function CharacterCard({ char, index }: CharacterCardProps) {
   const [editChar, setEditChar] = useState(false);
   const EditCharacter = () => {
+    console.log("clicked");
     setEditChar(true);
   };
 
@@ -55,6 +63,13 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
     critRate_: 0,
     critDMG_: 0,
   };
+
+  //Setting constellation img URLs
+  let charURLName = char.name.toLowerCase().split(" ").join("");
+  for(let i=0; i<6; i++) {
+    consImages[i] = `public/images/avatar/cons/${charURLName}_c${i+1}.png`;
+  }
+
   //Artifact logic
   let arts: JSX.Element[] = [];
   slots.forEach((slot) => {
@@ -111,13 +126,25 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
 
   return (
     <>
-      {editChar && (
+      
+      <Dialog
+        canEscapeKeyClose
+        canOutsideClickClose
+        autoFocus
+        isOpen={editChar}
+        onClose={() => setEditChar(false)}
+      >
+        <div>
+          <EditCharacterModal char={char} />
+        </div>
+      </Dialog>
+      {/* {editChar && (
         <>
           <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
-              {/*content*/}
+              
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                {/*header*/}
+                
                 <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
                   <h3 className="text-3xl font-semibold">Modal Title</h3>
                   <button
@@ -129,7 +156,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
                     </span>
                   </button>
                 </div>
-                {/*body*/}
+                
                 <div className="relative p-6 flex-auto">
                   <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
                     I always felt like I could do anything. That’s the main
@@ -139,7 +166,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
                     won’t do anything. I was taught I could do everything.
                   </p>
                 </div>
-                {/*footer*/}
+                
                 <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
                   <button
                     className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
@@ -161,7 +188,7 @@ export default function CharacterCard({ char, index }: CharacterCardProps) {
           </div>
           <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
         </>
-      )}
+      )} */}
 
       <div className="min-h-48 bg-gray-700 shadow rounded-md text-sm flex flex-col p-2 justify-center gap-2">
         <CharHeader char={char} handleEdit={EditCharacter} />
