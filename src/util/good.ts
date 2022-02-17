@@ -153,6 +153,7 @@ type CharacterKey =
   | "Xiao" //Xiao
   | "Xingqiu" //Xingqiu
   | "Xinyan" //Xinyan
+  | "Yaemiko" //Yaemiko
   | "Yanfei" //Yanfei
   | "Yoimiya" //Yoimiya
   | "Zhongli"; //Zhongli
